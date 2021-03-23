@@ -12,11 +12,15 @@ We hope you will have a pleasant journey on the interweb with us.
 This script uses:
 Selenium (might have to pip3 install that)
 
-You will also need to enter your credential for linkedin User id and password 
+step1: enter your credential for linkedin User id and password  line 25 & 26
 (I suggest creating a fake account)
 
-Once all that is done put your list of URL linkedin profile in ListURL.txt
+step2: Once all that is done put your list of URL linkedin profile in ListURL.txt
 the result will appear in a file called TempResult.txt
+
+run the program with "python3 LinkedInFinder.py" whle being in the repository folder
+
+extra-step 3: if a problem arrive due to the gecko driver look for a newer version
 
 WORD OF WARNING
 
