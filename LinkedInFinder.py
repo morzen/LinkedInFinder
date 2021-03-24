@@ -39,8 +39,6 @@ print(listlength)
 # and check for the lastest version if this one doesn't work
 browser = webdriver.Firefox(executable_path="./geckodriver")
 
-yolo = lookuplist[i]    
-
 #first page it will look for is obviously the login
 browser.get('https://www.linkedin.com/uas/login')
 #it will enter your credential and log as you
@@ -68,9 +66,9 @@ while i < listlength:
     yolo = lookuplist[i] 
     print(i)
     file_object.write("\n")
-    file_object.write(str(i)+"\n")
+    file_object.write(str(i)+"\n")#number in URLlist written in TempResult
     print(yolo)
-    file_object.write(yolo+"\n")
+    file_object.write(yolo+"\n")#profile URL in URLlist written in TempResult
 
     #browser.execute_script("window.open('');")
 
@@ -80,7 +78,7 @@ while i < listlength:
     
     time.sleep(5)
 
-    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")#scroll down to laod the page
 
     time.sleep(5)
 
@@ -89,6 +87,7 @@ while i < listlength:
 
     #those try and except are here to avoid errors due to differences
     #in the source code of different pages
+    #all information are stored in list info 
     try:
         PageSRC = browser.page_source
         FilteredSRC = BeautifulSoup(PageSRC, "lxml")
@@ -197,18 +196,21 @@ while i < listlength:
 
     #print(info)
     
-    #here is whereeverything is store
+    #here is where everything is being sorted and stored
     name = info[1]
     name2 = info[1]
     name2 = name2.replace(' ', '.')
+    #since email aren't displayed on linkedin but most companies uses
+    #there domain name for email you might guess and generate a possilbe email here
     email = name2 + '@EnterHostnameOfTheCompany.com'
     
+    #everything is reclassified and resorted from all the data we have from info etc into info2
     info2.append(email)
     info2.append(yolo)
     info2.append(name)
     info2.append(info[3])
     info2.append(duration)
-   
+   # and written to TempResult.txt
     file_object.write(email+"\n")
     file_object.write(name+"\n")
     file_object.write(info[3]+"\n")
@@ -221,11 +223,6 @@ while i < listlength:
     
     file_object.close()
     
-    #with open('ResultLinkedInScrapping.json', 'w') as fp:
-    #    json.dump(FinalDictionnary, fp,  indent=4)
-
-
-
 
 
     #print(data[i])
