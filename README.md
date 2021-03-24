@@ -21,9 +21,11 @@ RUN the program with "python3 LinkedInFinder.py" whle being in the repository fo
 
 extra-STEP 3: if a problem arrive due to the gecko driver look for a newer version
 
-WORD OF WARNING
+WORD OF WARNING\n
 if the script fail at some point (probably due to and html page being slightly different than others)
 do not panick all your results are stored in the TempResult.txt and the script is meant append anything to this file and not delete or overwrite
 but i would recomment you look at what number the script faild and to modify the i=0 line 12 by the number at where it failed and  if it fail again to the next number.
 like that you would avoid appenning result you already have.
+
+the program cannot solve the puzzles or picture selection to prove it is human that has to be done manually and quickly or the program fail.
 
